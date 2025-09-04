@@ -1,0 +1,150 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #2b7a78;
+  --secondary: #3aafa9;
+  --dark: #17252a;
+  --light: #def2f1;
+  --text: #333;
+  --font-heading: "Poppins", Arial, sans-serif;
+  --font-body: "Roboto", Arial, sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  line-height: 1.7;
+  background-color: #fdfdfd;
+  color: var(--text);
+}
+
+/* ===== Header ===== */
+header {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  padding: 25px 15px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header h1 {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+}
+
+/* ===== Sections ===== */
+section {
+  max-width: 960px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+section h2 {
+  color: var(--dark);
+  margin-bottom: 18px;
+  font-family: var(--font-heading);
+  font-size: 1.9rem;
+  border-left: 6px solid var(--secondary);
+  padding-left: 12px;
+}
+
+section p {
+  margin-bottom: 20px;
+  font-size: 1.05rem;
+}
+
+section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+section ul li {
+  background-color: var(--light);
+  margin-bottom: 12px;
+  padding: 12px 18px;
+  border-left: 5px solid var(--secondary);
+  border-radius: 6px;
+  font-size: 1.05rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+section ul li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+/* ===== Footer ===== */
+footer {
+  background-color: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 20px 15px;
+  margin-top: 60px;
+  font-size: 0.95rem;
+}
+
+/* ===== Responsivo ===== */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.6rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  section {
+    padding: 0 15px;
+  }
+
+  section h2 {
+    font-size: 1.5rem;
+  }
+
+  section p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  nav ul li a {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+
+  section h2 {
+    font-size: 1.3rem;
+  }
+}
