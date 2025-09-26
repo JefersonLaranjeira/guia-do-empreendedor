@@ -7,7 +7,7 @@
 
 :root {
   --primary: #2b7a78;
-  --secondary: #3aafa9;
+  --secondary: #0000ff;
   --dark: #17252a;
   --light: #def2f1;
   --text: #333;
@@ -148,3 +148,4 @@ footer {
     font-size: 1.3rem;
   }
 }
+
