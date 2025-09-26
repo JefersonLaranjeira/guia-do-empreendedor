@@ -81,7 +81,7 @@ section h2 {
 
 section h3 {
   color: var(--dark);
-  margin-bottom: 0px;
+  margin-bottom: 18px;
   font-family: var(--font-heading);
   font-size: 1.3rem;
   border-left: 6px solid var(--secondary);
@@ -157,6 +157,7 @@ footer {
     font-size: 1.3rem;
   }
 }
+
 
 
 
