@@ -24,7 +24,7 @@ body {
 
 /* ===== Header ===== */
 header {
-  background: linear-gradient(133deg, var(--primary), var(--secondary));
+  background: linear-gradient(200deg, var(--primary), var(--secondary));
   color: white;
   padding: 25px 15px;
   text-align: center;
@@ -148,6 +148,7 @@ footer {
     font-size: 1.3rem;
   }
 }
+
 
 
 
