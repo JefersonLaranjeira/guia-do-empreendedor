@@ -79,6 +79,15 @@ section h2 {
   padding-left: 12px;
 }
 
+section h3 {
+  color: var(--dark);
+  margin-bottom: 18px;
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  border-left: 6px solid var(--secondary);
+  padding-left: 12px;
+}
+
 section p {
   margin-bottom: 20px;
   font-size: 1.05rem;
@@ -148,6 +157,7 @@ footer {
     font-size: 1.3rem;
   }
 }
+
 
 
 
