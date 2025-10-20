@@ -8,51 +8,11 @@
   <meta name="description" content="Aprenda a empreender de forma simples e prática. Dicas, tutoriais e ferramentas para iniciar seu negócio.">
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    /* ===== Botão de alternância de tema ===== */
-    .theme-toggle {
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      background-color: rgba(255, 255, 255, 0.15);
-      color: #fff;
-      border: none;
-      padding: 8px 14px;
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-      font-size: 0.95rem;
-      backdrop-filter: blur(6px);
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      transition: all 0.4s ease;
-    }
-
-    .theme-toggle:hover {
-      background-color: rgba(255, 255, 255, 0.3);
-      transform: scale(1.05);
-    }
-
-    /* Ícone girando */
-    .theme-toggle span {
-      display: inline-block;
-      transition: transform 0.5s ease;
-    }
-
-    .dark-mode .theme-toggle span {
-      transform: rotate(360deg);
-    }
-  </style>
 </head>
-
 <body>
   <header>
     <h1>Guia do Empreendedor</h1>
-
-    <!-- 🔘 Botão de alternância de tema -->
     <button id="theme-toggle" class="theme-toggle"><span>🌙</span> Modo Escuro</button>
-
     <nav aria-label="Menu principal">
       <ul>
         <li><a href="#inicio">Início</a></li>
@@ -108,7 +68,7 @@
 
       <p style="margin-top: 20px;">Vamos aprender mais juntos!</p>
 
-      <h3>Documentos precisos para começar a empreender.</h3>
+      <h3>Documentos precisos para começar a empreender</h3>
       <p>RG ou CNH</p>
       <p>CPF</p>
       <p>Título de eleitor ou número do recibo da última declaração de IR (se já declarou).</p>
@@ -140,13 +100,12 @@
     <p>empreendedorismo2025@gmail.com</p>
   </footer>
 
-  <!-- ⚙️ Script de alternância de tema -->
+  <!-- ⚙️ Script de alternância de tema com emoji girando -->
   <script>
     const toggleButton = document.getElementById("theme-toggle");
     const body = document.body;
-    const iconSpan = toggleButton.querySelector("span");
 
-    // Verifica se o usuário já tem preferência salva
+    // Aplica tema salvo se existir
     if (localStorage.getItem("theme") === "dark") {
       body.classList.add("dark-mode");
       toggleButton.innerHTML = '<span>☀️</span> Modo Claro';
@@ -155,6 +114,12 @@
     toggleButton.addEventListener("click", () => {
       body.classList.toggle("dark-mode");
 
+      // Gira o emoji
+      const span = toggleButton.querySelector("span");
+      span.classList.add("rotate");
+      setTimeout(() => { span.classList.remove("rotate"); }, 500);
+
+      // Atualiza texto e salva no localStorage
       if (body.classList.contains("dark-mode")) {
         toggleButton.innerHTML = '<span>☀️</span> Modo Claro';
         localStorage.setItem("theme", "dark");
