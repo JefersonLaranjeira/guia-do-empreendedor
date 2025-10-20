@@ -247,3 +247,31 @@ footer {
     font-size: 1.3rem;
   }
 }
+/* ===== Botão de alternância de tema ===== */
+.theme-toggle {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+  backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+/* Quando estiver no modo escuro */
+.dark-mode .theme-toggle {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
