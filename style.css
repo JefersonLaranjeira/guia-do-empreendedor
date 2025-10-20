@@ -1,8 +1,9 @@
-/* Reset básico */
+/* ===== Reset básico ===== */ 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: all 0.25s ease-in-out; /* Transições suaves globais */
 }
 
 :root {
@@ -15,13 +16,20 @@
   --font-body: "Roboto", Arial, sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-body);
   line-height: 1.7;
   background-color: #fdfdfd;
   color: var(--text);
+  font-size: 1rem;
+  letter-spacing: 0.3px;
 }
 
+/* ===== Header ===== */
 header {
   background: linear-gradient(100deg, var(--primary), var(--secondary));
   color: white;
@@ -31,6 +39,13 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+/* Header com efeito ao rolar */
+header.scrolled {
+  padding: 15px 15px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
 }
 
 header h1 {
@@ -40,6 +55,7 @@ header h1 {
   letter-spacing: 1px;
 }
 
+/* ===== Navegação ===== */
 nav ul {
   list-style: none;
   display: flex;
@@ -54,21 +70,32 @@ nav ul li a {
   font-weight: 600;
   padding: 8px 14px;
   border-radius: 6px;
-  transition: all 0.3s ease;
+  position: relative;
 }
 
-nav ul li a:hover {
-  background: rgba(255,255,255,0.15);
-  color: #fff;
+/* Efeito underline animado */
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background: white;
+  transition: width 0.3s;
 }
 
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* ===== Seções ===== */
 section {
   max-width: 960px;
   margin: 60px auto;
   padding: 0 20px;
   scroll-margin-top: 100px;
 }
-
 
 section h2 {
   color: var(--dark);
@@ -122,7 +149,23 @@ footer {
   font-size: 0.95rem;
 }
 
-/* ===== Responsivo ===== */
+/* ===== Suporte ao modo escuro ===== */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+
+  section ul li {
+    background-color: #1f1f1f;
+  }
+
+  header {
+    background: linear-gradient(100deg, #1b3d3c, #00008b);
+  }
+}
+
+/* ===== Responsividade ===== */
 @media (max-width: 768px) {
   header h1 {
     font-size: 1.6rem;
@@ -156,19 +199,3 @@ footer {
     font-size: 1.3rem;
   }
 }
-html {
-  scroll-behavior: smooth;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
