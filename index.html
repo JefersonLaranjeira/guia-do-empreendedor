@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -10,107 +9,14 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const btn = document.getElementById('theme-toggle');
-  const body = document.body;
 
-  if (!btn) {
-    console.error('Botão #theme-toggle não encontrado. Verifique se existe <button id="theme-toggle"> no header.');
-    return;
-  }
-
-  // 
-  function applyTheme(theme) {
-    if (theme === 'dark') {
-      body.classList.add('dark-mode');
-      btn.textContent = 'Modo Claro';
-      btn.setAttribute('aria-pressed', 'true');
-    } else {
-      body.classList.remove('dark-mode');
-      btn.textContent = 'Modo Escuro';
-      btn.setAttribute('aria-pressed', 'false');
-    }
-  }
-
-  //
-  let saved = localStorage.getItem('theme');
-
-  //
-  if (!saved) {
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      saved = 'dark';
-    } else {
-      saved = 'light';
-    }
-  }
-
-  // 
-  applyTheme(saved);
-
-  // 
-  btn.addEventListener('click', () => {
-    const currentIsDark = body.classList.contains('dark-mode');
-    const next = currentIsDark ? 'light' : 'dark';
-    applyTheme(next);
-    localStorage.setItem('theme', next);
-  });
-
-  //
-  if (window.matchMedia) {
-    const mq = window.matchMedia('(prefers-color-scheme: dark)');
-    mq.addEventListener?.('change', (e) => {
-      //
-      if (!localStorage.getItem('theme')) {
-        applyTheme(e.matches ? 'dark' : 'light');
-      }
-    });
-  }
-});
-</script><script>
-document.addEventListener('DOMContentLoaded', () => {
-  const btn = document.getElementById('theme-toggle');
-  const body = document.body;
-
-  if (!btn) {
-    console.error('Botão #theme-toggle não encontrado.');
-    return;
-  }
-
-  //
-  function applyTheme(theme) {
-    if (theme === 'dark') {
-      body.classList.add('dark-mode');
-      btn.textContent = '☀️ Modo Claro';
-      btn.setAttribute('aria-pressed', 'true');
-    } else {
-      body.classList.remove('dark-mode');
-      btn.textContent = '🌙 Modo Escuro';
-      btn.setAttribute('aria-pressed', 'false');
-    }
-  }
-
-  // 
-  let saved = localStorage.getItem('theme');
-  if (!saved) {
-    saved = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  }
-
-  applyTheme(saved);
-
-  //
-  btn.addEventListener('click', () => {
-    const isDark = body.classList.contains('dark-mode');
-    const next = isDark ? 'light' : 'dark';
-    applyTheme(next);
-    localStorage.setItem('theme', next);
-  });
-});
-</script>
 <body>
   <header>
     <h1>Guia do Empreendedor</h1>
-      <button id="theme-toggle" class="theme-toggle">🌙 Modo Escuro</button>
+
+    <!-- 🔘 Botão de alternância de tema -->
+    <button id="theme-toggle" class="theme-toggle">🌙 Modo Escuro</button>
+
     <nav aria-label="Menu principal">
       <ul>
         <li><a href="#inicio">Início</a></li>
@@ -118,8 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
         <li><a href="#conteudo">Conteúdo</a></li>
       </ul>
     </nav>
-    <!-- 🔘 Botão de alternância de tema -->
-    <button id="theme-toggle">🌙 Modo Escuro</button>
   </header>
 
   <main>
@@ -225,8 +129,3 @@ document.addEventListener('DOMContentLoaded', () => {
   </script>
 </body>
 </html>
-
-
-
-
-
