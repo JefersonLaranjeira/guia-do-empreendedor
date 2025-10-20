@@ -19,6 +19,8 @@
         <li><a href="#conteudo">Conteúdo</a></li>
       </ul>
     </nav>
+    <!-- 🔘 Botão de alternância de tema -->
+    <button id="theme-toggle">🌙 Modo Escuro</button>
   </header>
 
   <main>
@@ -46,8 +48,10 @@
       <div class="card-grid">
         <h3><article class="card">O que é empreendedorismo?</article></h3>
         <p>Empreendedorismo é a capacidade de identificar oportunidades e criar soluções, seja abrindo um negócio, oferecendo um serviço ou vendendo um produto. Não precisa começar grande, o importante é começar com o que você tem.</p>
+
         <h3><article class="card">Como ter ideias de negócio</article></h3>
         <p>Observe o seu dia a dia: o que as pessoas ao seu redor mais precisam? Que tipo de serviço falta na sua comunidade? Pense no que você sabe fazer bem (cozinhar, costurar, cuidar de crianças, consertar coisas) e veja como isso pode virar um negócio.</p>
+
         <h3><article class="card">Criando um plano simples</article></h3>
         <p>Um plano simples pode ter só 4 partes:</p>
         <p>1º O que você vai vender?</p>
@@ -55,45 +59,40 @@
         <p>3º Quanto vai gastar e quanto espera ganhar?</p>
         <p>4º Como vai divulgar?</p>
         <p>Escreva isso em um caderno e já é um ótimo começo!</p>
+
         <h3><article class="card">Ferramentas gratuitas para começar</article></h3>
         <p><strong>Canva:</strong> para fazer artes e cartões de divulgação.</p>
         <p><strong>Google Planilhas:</strong> para controlar vendas e despesas.</p>
         <p><strong>WhatsApp Business:</strong> para atender clientes com mais profissionalismo.</p>
         <p><strong>Instagram:</strong> para mostrar seus produtos ou serviços.</p>
       </div>
+
       <p style="margin-top: 20px;">Vamos aprender mais juntos!</p>
-      <p><h3>Documentos precisos para começar a empreender.</h3></p>
+
+      <h3>Documentos precisos para começar a empreender.</h3>
       <p>RG ou CNH</p>
       <p>CPF</p>
-      <p>Título de eleitor ou o número do recibo da última declaração de Imposto de Renda (se já declarou).</p>
-      <p>Endereço de residencia></p>
+      <p>Título de eleitor ou número do recibo da última declaração de IR (se já declarou).</p>
+      <p>Endereço de residência</p>
       <p>Endereço de funcionamento de seu MEI</p>
       <p>Número de celular e e-mail válido</p>
-      <p><h3>Como se cadastrar para ser empreendedor?</h3></p>
-      <p>Para você se cadastrar como MEI é simples, você pode fazer isso de forma online e em poucos minutos, visite o <a href="https://www.gov.br/" target="_blank">gov.br</a> agora!</p>
-      <p>Para ser MEI você precisa: </p>
-      <p>1º Confira se pode ser MEI (faturamento até R$ 81 mil/ano, não ter outra empresa).</p>
-      <p>2º Separe seus documentos.</p>
-      <p>3º Acesse o site.</p>
-      <p>4º Crie ou entre na sua conta no site do GOV.</p>
-      <p>5º Prencha seus dados e finalize escolhendo sua atividade.</p>
-      <p>E pronto, seu cadastro está pronto, agora voce terá seu CNPJ ativo e poderá emitir notas fiscais e iniciar seu negócio de forma legalizada. O cadastro é feito <strong>apenas</strong> pelo site oficial do governo e é totalmente gratuito. Desconfie de sites que cobram pelo serviço.</p>
+
+      <h3>Como se cadastrar para ser empreendedor?</h3>
+      <p>Para você se cadastrar como MEI é simples, e pode ser feito online. Visite o <a href="https://www.gov.br/" target="_blank">gov.br</a> agora!</p>
+      <p>Para ser MEI você precisa:</p>
+      <p>1º Conferir se pode ser MEI (faturamento até R$ 81 mil/ano, não ter outra empresa).</p>
+      <p>2º Separar seus documentos.</p>
+      <p>3º Acessar o site.</p>
+      <p>4º Criar ou entrar na sua conta GOV.</p>
+      <p>5º Preencher seus dados e finalizar escolhendo sua atividade.</p>
+
+      <p>Pronto! Agora você terá seu CNPJ ativo, poderá emitir notas fiscais e iniciar seu negócio de forma legalizada. O cadastro é feito <strong>apenas</strong> pelo site oficial do governo e é totalmente gratuito. Desconfie de sites que cobram pelo serviço.</p>
+
       <h2>Como fazer cadastro no GOV.BR para ser MEI</h2>
-<iframe width="560" height="315" 
-  src="https://www.youtube.com/embed/SWS6fZR9kMM" 
-  title="YouTube video player" frameborder="0" 
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-  allowfullscreen></iframe>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/SWS6fZR9kMM" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
 
-<h2>Abrir MEI gratuito pelo celular passo a passo</h2>
-<iframe width="560" height="315" 
-  src="https://www.youtube.com/embed/uwf_k9TJ29o" 
-  title="YouTube video player" frameborder="0" 
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-  allowfullscreen></iframe>
-
-    
-    
+      <h2>Abrir MEI gratuito pelo celular passo a passo</h2>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/uwf_k9TJ29o" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
     </section>
   </main>
 
@@ -101,13 +100,29 @@
     <p>© 2025 - Projeto TCC Guia do Empreendedor</p>
     <p>empreendedorismo2025@gmail.com</p>
   </footer>
+
+  <!-- ⚙️ Script de alternância de tema -->
+  <script>
+    const toggleButton = document.getElementById("theme-toggle");
+    const body = document.body;
+
+    // Verifica se o usuário já tem preferência salva
+    if (localStorage.getItem("theme") === "dark") {
+      body.classList.add("dark-mode");
+      toggleButton.textContent = "☀️ Modo Claro";
+    }
+
+    toggleButton.addEventListener("click", () => {
+      body.classList.toggle("dark-mode");
+
+      if (body.classList.contains("dark-mode")) {
+        toggleButton.textContent = "☀️ Modo Claro";
+        localStorage.setItem("theme", "dark");
+      } else {
+        toggleButton.textContent = "🌙 Modo Escuro";
+        localStorage.setItem("theme", "light");
+      }
+    });
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
