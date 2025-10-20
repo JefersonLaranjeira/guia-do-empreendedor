@@ -89,6 +89,24 @@ nav ul li a:hover::after {
   width: 100%;
 }
 
+/* ===== Botão de alternar tema ===== */
+#theme-toggle {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid white;
+  color: white;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 20px;
+}
+
+#theme-toggle:hover {
+  background: white;
+  color: #004aad;
+}
+
 /* ===== Seções ===== */
 section {
   max-width: 960px;
@@ -149,20 +167,50 @@ footer {
   font-size: 0.95rem;
 }
 
-/* ===== Suporte ao modo escuro ===== */
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #121212;
-    color: #e0e0e0;
-  }
+/* ===== MODO ESCURO ATIVADO PELO BOTÃO ===== */
+.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
 
-  section ul li {
-    background-color: #1f1f1f;
-  }
+.dark-mode header {
+  background: linear-gradient(100deg, #1b3d3c, #00008b);
+  color: #f1f1f1;
+}
 
-  header {
-    background: linear-gradient(100deg, #1b3d3c, #00008b);
-  }
+.dark-mode nav ul li a {
+  color: #f1f1f1;
+}
+
+.dark-mode nav ul li a::after {
+  background: #f1f1f1;
+}
+
+.dark-mode section h2,
+.dark-mode section h3 {
+  color: #f1f1f1;
+  border-left-color: #0099ff;
+}
+
+.dark-mode section ul li {
+  background-color: #1f1f1f;
+  border-left-color: #0099ff;
+}
+
+.dark-mode footer {
+  background-color: #0d0d0d;
+  color: #ccc;
+}
+
+.dark-mode #theme-toggle {
+  background: rgba(255,255,255,0.15);
+  border: 2px solid #f1f1f1;
+  color: #f1f1f1;
+}
+
+.dark-mode #theme-toggle:hover {
+  background: #f1f1f1;
+  color: #000;
 }
 
 /* ===== Responsividade ===== */
