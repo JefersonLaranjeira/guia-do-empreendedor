@@ -283,3 +283,6 @@ footer {
 .rotate {
   transform: rotate(360deg);
 }
+ const span = toggleButton.querySelector("span");
+      span.classList.add("rotate");
+      setTimeout(() => { span.classList.remove("rotate"); }, 500);
