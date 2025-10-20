@@ -9,6 +9,64 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('theme-toggle');
+  const body = document.body;
+
+  if (!btn) {
+    console.error('Botão #theme-toggle não encontrado. Verifique se existe <button id="theme-toggle"> no header.');
+    return;
+  }
+
+  // Função que aplica o tema e atualiza o botão
+  function applyTheme(theme) {
+    if (theme === 'dark') {
+      body.classList.add('dark-mode');
+      btn.textContent = '☀️ Modo Claro';
+      btn.setAttribute('aria-pressed', 'true');
+    } else {
+      body.classList.remove('dark-mode');
+      btn.textContent = '🌙 Modo Escuro';
+      btn.setAttribute('aria-pressed', 'false');
+    }
+  }
+
+  // Lê preferência salva
+  let saved = localStorage.getItem('theme');
+
+  // Se não tiver salvo, usa preferência do sistema
+  if (!saved) {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      saved = 'dark';
+    } else {
+      saved = 'light';
+    }
+  }
+
+  // Aplica tema inicial
+  applyTheme(saved);
+
+  // Alterna tema ao clicar
+  btn.addEventListener('click', () => {
+    const currentIsDark = body.classList.contains('dark-mode');
+    const next = currentIsDark ? 'light' : 'dark';
+    applyTheme(next);
+    localStorage.setItem('theme', next);
+  });
+
+  // Observador: se o usuário alterar a preferência do sistema, atualiza só se não houver escolha manual
+  if (window.matchMedia) {
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    mq.addEventListener?.('change', (e) => {
+      // Só muda automaticamente se o usuário não tiver salvo preferência
+      if (!localStorage.getItem('theme')) {
+        applyTheme(e.matches ? 'dark' : 'light');
+      }
+    });
+  }
+});
+</script>
 <body>
   <header>
     <h1>Guia do Empreendedor</h1>
@@ -126,3 +184,4 @@
   </script>
 </body>
 </html>
+
