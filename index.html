@@ -67,6 +67,46 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('theme-toggle');
+  const body = document.body;
+
+  if (!btn) {
+    console.error('Botão #theme-toggle não encontrado.');
+    return;
+  }
+
+  // Aplica o tema e muda o texto do botão
+  function applyTheme(theme) {
+    if (theme === 'dark') {
+      body.classList.add('dark-mode');
+      btn.textContent = '☀️ Modo Claro';
+      btn.setAttribute('aria-pressed', 'true');
+    } else {
+      body.classList.remove('dark-mode');
+      btn.textContent = '🌙 Modo Escuro';
+      btn.setAttribute('aria-pressed', 'false');
+    }
+  }
+
+  // Verifica preferência salva ou do sistema
+  let saved = localStorage.getItem('theme');
+  if (!saved) {
+    saved = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  applyTheme(saved);
+
+  // Alterna o tema ao clicar
+  btn.addEventListener('click', () => {
+    const isDark = body.classList.contains('dark-mode');
+    const next = isDark ? 'light' : 'dark';
+    applyTheme(next);
+    localStorage.setItem('theme', next);
+  });
+});
+</script>
 <body>
   <header>
     <h1>Guia do Empreendedor</h1>
@@ -185,5 +225,6 @@ document.addEventListener('DOMContentLoaded', () => {
   </script>
 </body>
 </html>
+
 
 
