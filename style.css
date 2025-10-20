@@ -1,266 +1,223 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <link rel="icon" type="image/png" href="favicon.png">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guia do Empreendedor</title>
-  <meta name="description" content="Aprenda a empreender de forma simples e prática. Dicas, tutoriais e ferramentas para iniciar seu negócio.">
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <h1>Guia do Empreendedor</h1>
-    <button id="theme-toggle" class="theme-toggle"><span>🌙</span> Modo Escuro</button>
-    <nav aria-label="Menu principal">
-      <ul>
-        <li><a href="#inicio">Início</a></li>
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#conteudo">Conteúdo</a></li>
-      </ul>
-    </nav>
-  </header>
+/* ===== Reset básico ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.25s ease-in-out;
+}
 
-  <main>
-    <!-- Hero Section -->
-    <section id="inicio" class="hero">
-      <div class="hero-content">
-        <h2>Comece sua jornada empreendedora hoje</h2>
-        <p>"Você não precisa ser grande para começar, mas precisa começar para ser grande."</p>
-      </div>
-    </section>
+:root {
+  --primary: #2b7a78;
+  --secondary: #0000ff;
+  --dark: #17252a;
+  --light: #def2f1;
+  --text: #333;
+  --font-heading: "Poppins", Arial, sans-serif;
+  --font-body: "Roboto", Arial, sans-serif;
+}
 
-    <!-- Sobre -->
-    <section id="sobre">
-      <h2>Sobre o Projeto</h2>
-      <article>
-        <p>Este site tem como propósito apresentar e ensinar, de forma acessível, como se tornar um microempreendedor e construir um negócio de sucesso. Nosso foco é apoiar especialmente pessoas com baixa escolaridade, moradores de periferia e idosos que desejam ingressar no mundo do empreendedorismo.</p>
-        <p>Por meio deste site, você encontrará <strong>conteúdos práticos e simples</strong>, como videoaulas, eBooks e tutoriais sobre gestão de estoque, vendas, controle financeiro e atendimento ao cliente.</p>
-        <p>Acreditamos que o conhecimento é o primeiro passo para transformar sonhos em realidade. Estamos aqui para ajudar você a começar essa jornada!</p>
-      </article>
-    </section>
+html {
+  scroll-behavior: smooth;
+}
 
-    <!-- Conteúdo -->
-    <section id="conteudo">
-      <h2>Comece a Empreender</h2>
-      <div class="card-grid">
-        <h3><article class="card">O que é empreendedorismo?</article></h3>
-        <p>Empreendedorismo é a capacidade de identificar oportunidades e criar soluções, seja abrindo um negócio, oferecendo um serviço ou vendendo um produto. Não precisa começar grande, o importante é começar com o que você tem.</p>
+body {
+  font-family: var(--font-body);
+  line-height: 1.7;
+  background-color: #fdfdfd;
+  color: var(--text);
+  font-size: 1rem;
+  letter-spacing: 0.3px;
+}
 
-        <h3><article class="card">Como ter ideias de negócio</article></h3>
-        <p>Observe o seu dia a dia: o que as pessoas ao seu redor mais precisam? Que tipo de serviço falta na sua comunidade? Pense no que você sabe fazer bem (cozinhar, costurar, cuidar de crianças, consertar coisas) e veja como isso pode virar um negócio.</p>
+/* ===== Header ===== */
+header {
+  background: linear-gradient(100deg, var(--primary), var(--secondary));
+  color: white;
+  padding: 25px 15px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
 
-        <h3><article class="card">Criando um plano simples</article></h3>
-        <p>Um plano simples pode ter só 4 partes:</p>
-        <p>1º O que você vai vender?</p>
-        <p>2º Para quem vai vender?</p>
-        <p>3º Quanto vai gastar e quanto espera ganhar?</p>
-        <p>4º Como vai divulgar?</p>
-        <p>Escreva isso em um caderno e já é um ótimo começo!</p>
+header h1 {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
 
-        <h3><article class="card">Ferramentas gratuitas para começar</article></h3>
-        <p><strong>Canva:</strong> para fazer artes e cartões de divulgação.</p>
-        <p><strong>Google Planilhas:</strong> para controlar vendas e despesas.</p>
-        <p><strong>WhatsApp Business:</strong> para atender clientes com mais profissionalismo.</p>
-        <p><strong>Instagram:</strong> para mostrar seus produtos ou serviços.</p>
-      </div>
+/* ===== Navegação ===== */
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
 
-      <p style="margin-top: 20px;">Vamos aprender mais juntos!</p>
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 6px;
+  position: relative;
+}
 
-      <h3>Documentos precisos para começar a empreender</h3>
-      <p>RG ou CNH</p>
-      <p>CPF</p>
-      <p>Título de eleitor ou número do recibo da última declaração de IR (se já declarou).</p>
-      <p>Endereço de residência</p>
-      <p>Endereço de funcionamento de seu MEI</p>
-      <p>Número de celular e e-mail válido</p>
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background: white;
+  transition: width 0.3s;
+}
 
-      <h3>Como se cadastrar para ser empreendedor?</h3>
-      <p>Para você se cadastrar como MEI é simples, e pode ser feito online. Visite o <a href="https://www.gov.br/" target="_blank">gov.br</a> agora!</p>
-      <p>Para ser MEI você precisa:</p>
-      <p>1º Conferir se pode ser MEI (faturamento até R$ 81 mil/ano, não ter outra empresa).</p>
-      <p>2º Separar seus documentos.</p>
-      <p>3º Acessar o site.</p>
-      <p>4º Criar ou entrar na sua conta GOV.</p>
-      <p>5º Preencher seus dados e finalizar escolhendo sua atividade.</p>
+nav ul li a:hover::after {
+  width: 100%;
+}
 
-      <p>Pronto! Agora você terá seu CNPJ ativo, poderá emitir notas fiscais e iniciar seu negócio de forma legalizada. O cadastro é feito <strong>apenas</strong> pelo site oficial do governo e é totalmente gratuito. Desconfie de sites que cobram pelo serviço.</p>
+/* ===== Botão de alternar tema ===== */
+.theme-toggle {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+  backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
+}
 
-      <h2>Como fazer cadastro no GOV.BR para ser MEI</h2>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/SWS6fZR9kMM" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+.theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
 
-      <h2>Abrir MEI gratuito pelo celular passo a passo</h2>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/uwf_k9TJ29o" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
-    </section>
-  </main>
+.theme-toggle span {
+  display: inline-block;
+  transition: transform 0.5s ease;
+}
 
-  <footer>
-    <p>© 2025 - Projeto TCC Guia do Empreendedor</p>
-    <p>empreendedorismo2025@gmail.com</p>
-  </footer>
+.rotate {
+  transform: rotate(360deg);
+}
 
-  <!-- ⚙️ Script de alternância de tema com emoji girando -->
-  <script>
-    const toggleButton = document.getElementById("theme-toggle");
-    const body = document.body;
+/* ===== Seções ===== */
+section {
+  max-width: 960px;
+  margin: 60px auto;
+  padding: 0 20px;
+  scroll-margin-top: 100px;
+}
 
-    // Aplica tema salvo se existir
-    if (localStorage.getItem("theme") === "dark") {
-      body.classList.add("dark-mode");
-      toggleButton.innerHTML = '<span>☀️</span> Modo Claro';
-    }
+section h2 {
+  color: var(--dark);
+  margin-bottom: 18px;
+  font-family: var(--font-heading);
+  font-size: 1.9rem;
+  border-left: 6px solid var(--secondary);
+  padding-left: 12px;
+}
 
-    toggleButton.addEventListener("click", () => {
-      body.classList.toggle("dark-mode");
+section h3 {
+  color: var(--dark);
+  margin-bottom: 18px;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  padding-left: 12px;
+}
 
-      // Gira o emoji
-      const span = toggleButton.querySelector("span");
-      span.classList.add("rotate");
-      setTimeout(() => { span.classList.remove("rotate"); }, 500);
+section p {
+  margin-bottom: 20px;
+  font-size: 1.05rem;
+}
 
-      // Atualiza texto e salva no localStorage
-      if (body.classList.contains("dark-mode")) {
-        toggleButton.innerHTML = '<span>☀️</span> Modo Claro';
-        localStorage.setItem("theme", "dark");
-      } else {
-        toggleButton.innerHTML = '<span>🌙</span> Modo Escuro';
-        localStorage.setItem("theme", "light");
-      }
-    });
-  </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <link rel="icon" type="image/png" href="favicon.png">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guia do Empreendedor</title>
-  <meta name="description" content="Aprenda a empreender de forma simples e prática. Dicas, tutoriais e ferramentas para iniciar seu negócio.">
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <h1>Guia do Empreendedor</h1>
-    <button id="theme-toggle" class="theme-toggle"><span>🌙</span> Modo Escuro</button>
-    <nav aria-label="Menu principal">
-      <ul>
-        <li><a href="#inicio">Início</a></li>
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#conteudo">Conteúdo</a></li>
-      </ul>
-    </nav>
-  </header>
+section ul {
+  list-style: none;
+  padding-left: 0;
+}
 
-  <main>
-    <!-- Hero Section -->
-    <section id="inicio" class="hero">
-      <div class="hero-content">
-        <h2>Comece sua jornada empreendedora hoje</h2>
-        <p>"Você não precisa ser grande para começar, mas precisa começar para ser grande."</p>
-      </div>
-    </section>
+section ul li {
+  background-color: var(--light);
+  margin-bottom: 12px;
+  padding: 12px 18px;
+  border-left: 5px solid var(--secondary);
+  border-radius: 6px;
+  font-size: 1.05rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-    <!-- Sobre -->
-    <section id="sobre">
-      <h2>Sobre o Projeto</h2>
-      <article>
-        <p>Este site tem como propósito apresentar e ensinar, de forma acessível, como se tornar um microempreendedor e construir um negócio de sucesso. Nosso foco é apoiar especialmente pessoas com baixa escolaridade, moradores de periferia e idosos que desejam ingressar no mundo do empreendedorismo.</p>
-        <p>Por meio deste site, você encontrará <strong>conteúdos práticos e simples</strong>, como videoaulas, eBooks e tutoriais sobre gestão de estoque, vendas, controle financeiro e atendimento ao cliente.</p>
-        <p>Acreditamos que o conhecimento é o primeiro passo para transformar sonhos em realidade. Estamos aqui para ajudar você a começar essa jornada!</p>
-      </article>
-    </section>
+section ul li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
 
-    <!-- Conteúdo -->
-    <section id="conteudo">
-      <h2>Comece a Empreender</h2>
-      <div class="card-grid">
-        <h3><article class="card">O que é empreendedorismo?</article></h3>
-        <p>Empreendedorismo é a capacidade de identificar oportunidades e criar soluções, seja abrindo um negócio, oferecendo um serviço ou vendendo um produto. Não precisa começar grande, o importante é começar com o que você tem.</p>
+/* ===== Footer ===== */
+footer {
+  background-color: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 20px 15px;
+  margin-top: 60px;
+  font-size: 0.95rem;
+}
 
-        <h3><article class="card">Como ter ideias de negócio</article></h3>
-        <p>Observe o seu dia a dia: o que as pessoas ao seu redor mais precisam? Que tipo de serviço falta na sua comunidade? Pense no que você sabe fazer bem (cozinhar, costurar, cuidar de crianças, consertar coisas) e veja como isso pode virar um negócio.</p>
+/* ===== Modo escuro ===== */
+.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
 
-        <h3><article class="card">Criando um plano simples</article></h3>
-        <p>Um plano simples pode ter só 4 partes:</p>
-        <p>1º O que você vai vender?</p>
-        <p>2º Para quem vai vender?</p>
-        <p>3º Quanto vai gastar e quanto espera ganhar?</p>
-        <p>4º Como vai divulgar?</p>
-        <p>Escreva isso em um caderno e já é um ótimo começo!</p>
+.dark-mode header {
+  background: linear-gradient(100deg, #1b3d3c, #00008b);
+  color: #f1f1f1;
+}
 
-        <h3><article class="card">Ferramentas gratuitas para começar</article></h3>
-        <p><strong>Canva:</strong> para fazer artes e cartões de divulgação.</p>
-        <p><strong>Google Planilhas:</strong> para controlar vendas e despesas.</p>
-        <p><strong>WhatsApp Business:</strong> para atender clientes com mais profissionalismo.</p>
-        <p><strong>Instagram:</strong> para mostrar seus produtos ou serviços.</p>
-      </div>
+.dark-mode nav ul li a {
+  color: #f1f1f1;
+}
 
-      <p style="margin-top: 20px;">Vamos aprender mais juntos!</p>
+.dark-mode nav ul li a::after {
+  background: #f1f1f1;
+}
 
-      <h3>Documentos precisos para começar a empreender</h3>
-      <p>RG ou CNH</p>
-      <p>CPF</p>
-      <p>Título de eleitor ou número do recibo da última declaração de IR (se já declarou).</p>
-      <p>Endereço de residência</p>
-      <p>Endereço de funcionamento de seu MEI</p>
-      <p>Número de celular e e-mail válido</p>
+.dark-mode section h2,
+.dark-mode section h3 {
+  color: #f1f1f1;
+  border-left-color: #0099ff;
+}
 
-      <h3>Como se cadastrar para ser empreendedor?</h3>
-      <p>Para você se cadastrar como MEI é simples, e pode ser feito online. Visite o <a href="https://www.gov.br/" target="_blank">gov.br</a> agora!</p>
-      <p>Para ser MEI você precisa:</p>
-      <p>1º Conferir se pode ser MEI (faturamento até R$ 81 mil/ano, não ter outra empresa).</p>
-      <p>2º Separar seus documentos.</p>
-      <p>3º Acessar o site.</p>
-      <p>4º Criar ou entrar na sua conta GOV.</p>
-      <p>5º Preencher seus dados e finalizar escolhendo sua atividade.</p>
+.dark-mode section ul li {
+  background-color: #1f1f1f;
+  border-left-color: #0099ff;
+}
 
-      <p>Pronto! Agora você terá seu CNPJ ativo, poderá emitir notas fiscais e iniciar seu negócio de forma legalizada. O cadastro é feito <strong>apenas</strong> pelo site oficial do governo e é totalmente gratuito. Desconfie de sites que cobram pelo serviço.</p>
+.dark-mode footer {
+  background-color: #0d0d0d;
+  color: #ccc;
+}
 
-      <h2>Como fazer cadastro no GOV.BR para ser MEI</h2>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/SWS6fZR9kMM" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+/* ===== Responsividade ===== */
+@media (max-width: 768px) {
+  header h1 { font-size: 1.6rem; }
+  nav ul { flex-direction: column; gap: 10px; }
+  section { padding: 0 15px; }
+  section h2 { font-size: 1.5rem; }
+  section p { font-size: 1rem; }
+}
 
-      <h2>Abrir MEI gratuito pelo celular passo a passo</h2>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/uwf_k9TJ29o" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
-    </section>
-  </main>
-
-  <footer>
-    <p>© 2025 - Projeto TCC Guia do Empreendedor</p>
-    <p>empreendedorismo2025@gmail.com</p>
-  </footer>
-
-  <!-- ⚙️ Script de alternância de tema com emoji girando -->
-  <script>
-    const toggleButton = document.getElementById("theme-toggle");
-    const body = document.body;
-
-    // Aplica tema salvo se existir
-    if (localStorage.getItem("theme") === "dark") {
-      body.classList.add("dark-mode");
-      toggleButton.innerHTML = '<span>☀️</span> Modo Claro';
-    }
-
-    toggleButton.addEventListener("click", () => {
-      body.classList.toggle("dark-mode");
-
-      // Gira o emoji
-      const span = toggleButton.querySelector("span");
-      span.classList.add("rotate");
-      setTimeout(() => { span.classList.remove("rotate"); }, 500);
-
-      // Atualiza texto e salva no localStorage
-      if (body.classList.contains("dark-mode")) {
-        toggleButton.innerHTML = '<span>☀️</span> Modo Claro';
-        localStorage.setItem("theme", "dark");
-      } else {
-        toggleButton.innerHTML = '<span>🌙</span> Modo Escuro';
-        localStorage.setItem("theme", "light");
-      }
-    });
-  </script>
-</body>
-</html>
+@media (max-width: 480px) {
+  nav ul li a { padding: 10px; font-size: 0.95rem; }
+  section h2 { font-size: 1.3rem; }
+}
