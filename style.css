@@ -1,4 +1,4 @@
-/* ===== Reset básico ===== */
+/* ===== RESET BÁSICO ===== */
 * {
   margin: 0;
   padding: 0;
@@ -6,30 +6,32 @@
   transition: all 0.25s ease-in-out;
 }
 
+/* ===== VARIÁVEIS ===== */
 :root {
   --primary: #2b7a78;
   --secondary: #0000ff;
   --dark: #17252a;
   --light: #def2f1;
   --text: #333;
-  --font-heading: "Poppins", Arial, sans-serif;
-  --font-body: "Roboto", Arial, sans-serif;
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Roboto", sans-serif;
+}
+
+/* ===== BASE ===== */
+body {
+  font-family: var(--font-body);
+  background-color: #fdfdfd;
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.7;
+  letter-spacing: 0.3px;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-body {
-  font-family: var(--font-body);
-  line-height: 1.7;
-  background-color: #fdfdfd;
-  color: var(--text);
-  font-size: 1rem;
-  letter-spacing: 0.3px;
-}
-
-/* ===== Header ===== */
+/* ===== HEADER ===== */
 header {
   background: linear-gradient(100deg, var(--primary), var(--secondary));
   color: white;
@@ -39,36 +41,34 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  transition: all 0.3s ease;
 }
 
 header h1 {
   font-family: var(--font-heading);
-  font-size: 2.2rem;
-  margin-bottom: 12px;
-  letter-spacing: 1px;
+  font-size: 2rem;
+  margin-bottom: 10px;
 }
 
-/* ===== Navegação ===== */
+/* ===== NAVEGAÇÃO ===== */
 nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 15px;
 }
 
-nav ul li a {
-  text-decoration: none;
+nav a {
   color: white;
+  text-decoration: none;
   font-weight: 600;
   padding: 8px 14px;
   border-radius: 6px;
   position: relative;
 }
 
-nav ul li a::after {
-  content: '';
+nav a::after {
+  content: "";
   position: absolute;
   left: 0;
   bottom: -3px;
@@ -78,11 +78,11 @@ nav ul li a::after {
   transition: width 0.3s;
 }
 
-nav ul li a:hover::after {
+nav a:hover::after {
   width: 100%;
 }
 
-/* ===== Botão de alternar tema ===== */
+/* ===== BOTÃO DE TEMA ===== */
 .theme-toggle {
   position: absolute;
   top: 15px;
@@ -96,7 +96,6 @@ nav ul li a:hover::after {
   cursor: pointer;
   font-size: 0.95rem;
   backdrop-filter: blur(6px);
-  transition: all 0.3s ease;
 }
 
 .theme-toggle:hover {
@@ -104,6 +103,7 @@ nav ul li a:hover::after {
   transform: scale(1.05);
 }
 
+/* 🔹 ANIMAÇÃO DO EMOJI */
 .theme-toggle span {
   display: inline-block;
   transition: transform 0.5s ease;
@@ -113,67 +113,69 @@ nav ul li a:hover::after {
   transform: rotate(360deg);
 }
 
-/* ===== Seções ===== */
+/* ===== SEÇÕES ===== */
 section {
   max-width: 960px;
   margin: 60px auto;
   padding: 0 20px;
-  scroll-margin-top: 100px;
 }
 
 section h2 {
   color: var(--dark);
-  margin-bottom: 18px;
-  font-family: var(--font-heading);
-  font-size: 1.9rem;
   border-left: 6px solid var(--secondary);
-  padding-left: 12px;
+  padding-left: 10px;
+  margin-bottom: 15px;
+  font-family: var(--font-heading);
 }
 
 section h3 {
-  color: var(--dark);
-  margin-bottom: 18px;
+  margin-bottom: 10px;
   font-family: var(--font-heading);
-  font-size: 1.2rem;
-  padding-left: 12px;
 }
 
-section p {
-  margin-bottom: 20px;
-  font-size: 1.05rem;
+/* ===== CARDS ===== */
+.card-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
-section ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-section ul li {
+.card {
   background-color: var(--light);
-  margin-bottom: 12px;
-  padding: 12px 18px;
-  border-left: 5px solid var(--secondary);
-  border-radius: 6px;
-  font-size: 1.05rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
 }
 
-section ul li:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+.card:hover {
+  transform: translateY(-5px);
 }
 
-/* ===== Footer ===== */
+/* ===== VÍDEOS ===== */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+iframe {
+  width: 100%;
+  height: 220px;
+  border: none;
+  border-radius: 10px;
+}
+
+/* ===== FOOTER ===== */
 footer {
   background-color: var(--dark);
   color: white;
   text-align: center;
-  padding: 20px 15px;
-  margin-top: 60px;
+  padding: 20px;
   font-size: 0.95rem;
+  margin-top: 60px;
 }
 
-/* ===== Modo escuro ===== */
+/* ===== MODO ESCURO ===== */
 .dark-mode {
   background-color: #121212;
   color: #e0e0e0;
@@ -181,15 +183,6 @@ footer {
 
 .dark-mode header {
   background: linear-gradient(100deg, #1b3d3c, #00008b);
-  color: #f1f1f1;
-}
-
-.dark-mode nav ul li a {
-  color: #f1f1f1;
-}
-
-.dark-mode nav ul li a::after {
-  background: #f1f1f1;
 }
 
 .dark-mode section h2,
@@ -198,26 +191,22 @@ footer {
   border-left-color: #0099ff;
 }
 
-.dark-mode section ul li {
+.dark-mode .card {
   background-color: #1f1f1f;
-  border-left-color: #0099ff;
 }
 
-.dark-mode footer {
-  background-color: #0d0d0d;
-  color: #ccc;
-}
-
-/* ===== Responsividade ===== */
+/* ===== RESPONSIVIDADE ===== */
 @media (max-width: 768px) {
   header h1 { font-size: 1.6rem; }
   nav ul { flex-direction: column; gap: 10px; }
-  section { padding: 0 15px; }
-  section h2 { font-size: 1.5rem; }
-  section p { font-size: 1rem; }
+  .theme-toggle { top: 10px; right: 10px; font-size: 0.85rem; }
+  .card-grid { grid-template-columns: 1fr; }
+  iframe { height: 200px; }
 }
 
 @media (max-width: 480px) {
-  nav ul li a { padding: 10px; font-size: 0.95rem; }
-  section h2 { font-size: 1.3rem; }
+  body { font-size: 0.95rem; }
+  header { padding: 20px 10px; }
+  section { margin: 40px auto; padding: 0 10px; }
+  iframe { height: 180px; }
 }
