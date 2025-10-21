@@ -104,49 +104,50 @@
   </footer>
 
   <!-- ================= SCRIPT ================= -->
+<!-- ⚙️ Script corrigido (sem duplicar ícones) -->
 <script>
   const toggleButton = document.getElementById("theme-toggle");
   const body = document.body;
 
-  // 🔹 Aplica o tema salvo
-  if (localStorage.getItem("theme") === "dark") {
-    body.classList.add("dark-mode");
-    toggleButton.innerHTML = '<span class="icon sun">☀️</span> Modo Claro';
-  } else {
-    toggleButton.innerHTML = '<span class="icon moon">🌙</span> Modo Escuro';
+  // 🔹 Função para atualizar o ícone e o texto
+  function updateThemeIcon(isDark) {
+    toggleButton.innerHTML = `
+      <span class="icon ${isDark ? "sun" : "moon"}">${isDark ? "☀️" : "🌙"}</span>
+      ${isDark ? "Modo Claro" : "Modo Escuro"}
+    `;
   }
 
+  // 🔹 Aplica o tema salvo no carregamento
+  const savedTheme = localStorage.getItem("theme");
+  const startDark = savedTheme === "dark";
+  if (startDark) body.classList.add("dark-mode");
+  updateThemeIcon(startDark);
+
+  // 🔹 Clique no botão para trocar tema
   toggleButton.addEventListener("click", () => {
     const isDark = !body.classList.contains("dark-mode");
     body.classList.toggle("dark-mode");
 
-    // Remove qualquer ícone anterior
-    const currentIcon = toggleButton.querySelector(".icon");
-    if (currentIcon) currentIcon.remove();
-
-    // Cria novo ícone e adiciona animação de entrada
-    const newIcon = document.createElement("span");
-    newIcon.classList.add("icon", isDark ? "sun" : "moon", "enter");
-    newIcon.textContent = isDark ? "☀️" : "🌙";
-    toggleButton.prepend(newIcon);
-
-    // Cria ícone que vai sair (para o efeito de transição simultânea)
+    // Animação: cria um ícone temporário que sai
     const oldIcon = document.createElement("span");
     oldIcon.classList.add("icon", isDark ? "moon" : "sun", "exit");
     oldIcon.textContent = isDark ? "🌙" : "☀️";
     toggleButton.prepend(oldIcon);
 
-    // Atualiza o texto
-    toggleButton.lastChild.textContent = isDark ? " Modo Claro" : " Modo Escuro";
-
-    // Salva no localStorage
-    localStorage.setItem("theme", isDark ? "dark" : "light");
+    // Atualiza o novo ícone e texto (entra animado)
+    updateThemeIcon(isDark);
+    const newIcon = toggleButton.querySelector(".icon");
+    newIcon.classList.add("enter");
 
     // Remove o ícone antigo após a animação
     setTimeout(() => oldIcon.remove(), 600);
+
+    // Salva no localStorage
+    localStorage.setItem("theme", isDark ? "dark" : "light");
   });
 </script>
 </body>
 </html>
+
 
 
