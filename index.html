@@ -11,14 +11,68 @@
   <!-- 🔹 Fontes e CSS -->
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* 🔸 Correção de rolagem e espaçamento */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    section {
+      scroll-margin-top: 140px; /* impede que o header cubra o título */
+    }
+
+    #inicio {
+      padding-top: 80px; /* garante que o topo da primeira seção não fique colado no header */
+    }
+
+    /* 🔸 Correção extra para o botão do tema */
+    .theme-toggle {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background-color: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.95rem;
+      backdrop-filter: blur(6px);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      overflow: hidden;
+    }
+
+    .icon {
+      display: inline-block;
+      transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+
+    .enter {
+      transform: rotate(360deg);
+      opacity: 1;
+    }
+
+    .exit {
+      position: absolute;
+      transform: rotate(-360deg);
+      opacity: 0;
+    }
+  </style>
 </head>
+
 <body>
   <!-- ================= HEADER ================= -->
   <header>
     <h1>Guia do Empreendedor</h1>
     <button id="theme-toggle" class="theme-toggle">
-      <span>🌙</span> Modo Escuro
+      <span class="icon moon">🌙</span> Modo Escuro
     </button>
+
     <nav aria-label="Menu principal">
       <ul>
         <li><a href="#inicio">Início</a></li>
@@ -104,50 +158,42 @@
   </footer>
 
   <!-- ================= SCRIPT ================= -->
-<!-- ⚙️ Script corrigido (sem duplicar ícones) -->
-<script>
-  const toggleButton = document.getElementById("theme-toggle");
-  const body = document.body;
+  <script>
+    const toggleButton = document.getElementById("theme-toggle");
+    const body = document.body;
 
-  // 🔹 Função para atualizar o ícone e o texto
-  function updateThemeIcon(isDark) {
-    toggleButton.innerHTML = `
-      <span class="icon ${isDark ? "sun" : "moon"}">${isDark ? "☀️" : "🌙"}</span>
-      ${isDark ? "Modo Claro" : "Modo Escuro"}
-    `;
-  }
+    // 🔹 Atualiza o ícone e o texto conforme o tema
+    function updateThemeIcon(isDark) {
+      toggleButton.innerHTML = `
+        <span class="icon ${isDark ? "sun" : "moon"}">${isDark ? "☀️" : "🌙"}</span>
+        ${isDark ? "Modo Claro" : "Modo Escuro"}
+      `;
+    }
 
-  // 🔹 Aplica o tema salvo no carregamento
-  const savedTheme = localStorage.getItem("theme");
-  const startDark = savedTheme === "dark";
-  if (startDark) body.classList.add("dark-mode");
-  updateThemeIcon(startDark);
+    // 🔹 Aplica o tema salvo
+    const savedTheme = localStorage.getItem("theme");
+    const startDark = savedTheme === "dark";
+    if (startDark) body.classList.add("dark-mode");
+    updateThemeIcon(startDark);
 
-  // 🔹 Clique no botão para trocar tema
-  toggleButton.addEventListener("click", () => {
-    const isDark = !body.classList.contains("dark-mode");
-    body.classList.toggle("dark-mode");
+    // 🔹 Clique no botão
+    toggleButton.addEventListener("click", () => {
+      const isDark = !body.classList.contains("dark-mode");
+      body.classList.toggle("dark-mode");
 
-    // Animação: cria um ícone temporário que sai
-    const oldIcon = document.createElement("span");
-    oldIcon.classList.add("icon", isDark ? "moon" : "sun", "exit");
-    oldIcon.textContent = isDark ? "🌙" : "☀️";
-    toggleButton.prepend(oldIcon);
+      // Cria o ícone de transição
+      const oldIcon = document.createElement("span");
+      oldIcon.classList.add("icon", isDark ? "moon" : "sun", "exit");
+      oldIcon.textContent = isDark ? "🌙" : "☀️";
+      toggleButton.prepend(oldIcon);
 
-    // Atualiza o novo ícone e texto (entra animado)
-    updateThemeIcon(isDark);
-    const newIcon = toggleButton.querySelector(".icon");
-    newIcon.classList.add("enter");
+      updateThemeIcon(isDark);
+      const newIcon = toggleButton.querySelector(".icon");
+      newIcon.classList.add("enter");
 
-    // Remove o ícone antigo após a animação
-    setTimeout(() => oldIcon.remove(), 600);
-
-    // Salva no localStorage
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-  });
-</script>
+      setTimeout(() => oldIcon.remove(), 600);
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+  </script>
 </body>
 </html>
-
-
-
