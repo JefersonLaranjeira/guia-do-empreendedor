@@ -96,6 +96,11 @@ nav a:hover::after {
   cursor: pointer;
   font-size: 0.95rem;
   backdrop-filter: blur(6px);
+  overflow: hidden; /* necessário para esconder o emoji que sai */
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .theme-toggle:hover {
@@ -103,15 +108,34 @@ nav a:hover::after {
   transform: scale(1.05);
 }
 
-/* 🔹 ANIMAÇÃO DO EMOJI */
+/* 🔹 Ícone do emoji com animação */
 .theme-toggle span {
   display: inline-block;
-  transition: transform 0.5s ease;
+  transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-.rotate {
-  transform: rotate(360deg);
+/* 🔹 Animação: o emoji atual sai para a esquerda (como indo “atrás”) */
+.theme-toggle span.swap {
+  transform: translateX(-120%) scale(0.7) rotate(-30deg);
+  opacity: 0;
 }
+
+/* 🔹 Quando novo emoji entra, ele vem da direita */
+.dark-mode .theme-toggle span {
+  animation: enterRight 0.4s ease forwards;
+}
+
+@keyframes enterRight {
+  from {
+    transform: translateX(120%) scale(0.7) rotate(30deg);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0) scale(1) rotate(0);
+    opacity: 1;
+  }
+}
+
 
 /* ===== SEÇÕES ===== */
 section {
@@ -210,3 +234,4 @@ footer {
   section { margin: 40px auto; padding: 0 10px; }
   iframe { height: 180px; }
 }
+
