@@ -83,6 +83,7 @@ nav a:hover::after {
 }
 
 /* ===== BOTÃO DE TEMA ===== */
+/* ===== BOTÃO DE TEMA ===== */
 .theme-toggle {
   position: absolute;
   top: 15px;
@@ -96,7 +97,7 @@ nav a:hover::after {
   cursor: pointer;
   font-size: 0.95rem;
   backdrop-filter: blur(6px);
-  overflow: hidden; /* necessário para esconder o emoji que sai */
+  overflow: hidden;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -108,34 +109,46 @@ nav a:hover::after {
   transform: scale(1.05);
 }
 
-/* 🔹 Ícone do emoji com animação */
-.theme-toggle span {
+/* ===== ÍCONES DO SOL E DA LUA ===== */
+.icon {
   display: inline-block;
+  font-size: 1.1rem;
   transition: transform 0.4s ease, opacity 0.4s ease;
+  position: relative;
 }
 
-/* 🔹 Animação: o emoji atual sai para a esquerda (como indo “atrás”) */
-.theme-toggle span.swap {
-  transform: translateX(-120%) scale(0.7) rotate(-30deg);
-  opacity: 0;
+/* 🔹 Animações de entrada e saída */
+.icon.enter {
+  animation: iconEnter 0.6s ease forwards;
 }
 
-/* 🔹 Quando novo emoji entra, ele vem da direita */
-.dark-mode .theme-toggle span {
-  animation: enterRight 0.4s ease forwards;
+.icon.exit {
+  animation: iconExit 0.6s ease forwards;
 }
 
-@keyframes enterRight {
-  from {
-    transform: translateX(120%) scale(0.7) rotate(30deg);
+/* 🌞 Sol aparece vindo da direita */
+@keyframes iconEnter {
+  0% {
+    transform: translateX(100%) rotate(45deg) scale(0.8);
     opacity: 0;
   }
-  to {
-    transform: translateX(0) scale(1) rotate(0);
+  100% {
+    transform: translateX(0) rotate(0) scale(1);
     opacity: 1;
   }
 }
 
+/* 🌙 Lua sai suavemente para a esquerda */
+@keyframes iconExit {
+  0% {
+    transform: translateX(0) rotate(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%) rotate(-45deg) scale(0.8);
+    opacity: 0;
+  }
+}
 
 /* ===== SEÇÕES ===== */
 section {
@@ -234,4 +247,5 @@ footer {
   section { margin: 40px auto; padding: 0 10px; }
   iframe { height: 180px; }
 }
+
 
