@@ -109,7 +109,7 @@ nav a:hover::after {
   transform: scale(1.05);
 }
 
-/* ===== ÍCONES DO SOL E DA LUA ===== */
+/* ===== ÍCONES ===== */
 .icon {
   display: inline-block;
   font-size: 1.1rem;
@@ -117,31 +117,31 @@ nav a:hover::after {
   position: relative;
 }
 
-/* 🔹 Animações de entrada e saída */
+/* 🌞 entra da direita */
 .icon.enter {
   animation: iconEnter 0.6s ease forwards;
 }
 
+/* 🌙 sai para a esquerda */
 .icon.exit {
   animation: iconExit 0.6s ease forwards;
 }
 
-/* 🌞 Sol aparece vindo da direita */
+/* ===== ANIMAÇÕES ===== */
 @keyframes iconEnter {
   0% {
     transform: translateX(100%) rotate(45deg) scale(0.8);
     opacity: 0;
   }
   100% {
-    transform: translateX(0) rotate(0) scale(1);
+    transform: translateX(0) rotate(0deg) scale(1);
     opacity: 1;
   }
 }
 
-/* 🌙 Lua sai suavemente para a esquerda */
 @keyframes iconExit {
   0% {
-    transform: translateX(0) rotate(0) scale(1);
+    transform: translateX(0) rotate(0deg) scale(1);
     opacity: 1;
   }
   100% {
@@ -149,6 +149,7 @@ nav a:hover::after {
     opacity: 0;
   }
 }
+
 
 /* ===== SEÇÕES ===== */
 section {
@@ -247,5 +248,6 @@ footer {
   section { margin: 40px auto; padding: 0 10px; }
   iframe { height: 180px; }
 }
+
 
 
