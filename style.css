@@ -215,7 +215,7 @@ footer {
 
 /* ===== MODO ESCURO ===== */
 .dark-mode {
-  background-color: #121212;
+  background-color: #092230;
   color: #e0e0e0;
 }
 
@@ -248,6 +248,7 @@ footer {
   section { margin: 40px auto; padding: 0 10px; }
   iframe { height: 180px; }
 }
+
 
 
 
