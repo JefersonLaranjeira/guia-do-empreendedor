@@ -1,32 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <!-- 🔹 Ícone e meta -->
   <link rel="icon" type="image/png" href="favicon.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Guia do Empreendedor</title>
   <meta name="description" content="Aprenda a empreender de forma simples e prática. Dicas, tutoriais e ferramentas para iniciar seu negócio.">
-
-  <!-- 🔹 Fontes e CSS -->
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
-    /* 🔸 Correção de rolagem e espaçamento */
     html {
       scroll-behavior: smooth;
     }
 
     section {
-      scroll-margin-top: 140px; /* impede que o header cubra o título */
+      scroll-margin-top: 140px;
     }
 
     #inicio {
-      padding-top: 80px; /* garante que o topo da primeira seção não fique colado no header */
+      padding-top: 80px;
     }
 
-    /* 🔸 Correção extra para o botão do tema */
     .theme-toggle {
       position: absolute;
       top: 15px;
@@ -66,7 +61,6 @@
 </head>
 
 <body>
-  <!-- ================= HEADER ================= -->
   <header>
     <h1>Guia do Empreendedor</h1>
     <button id="theme-toggle" class="theme-toggle">
@@ -82,9 +76,7 @@
     </nav>
   </header>
 
-  <!-- ================= MAIN ================= -->
   <main>
-    <!-- 🔸 Seção inicial -->
     <section id="inicio" class="hero">
       <div class="hero-content">
         <h2>Comece sua jornada empreendedora hoje</h2>
@@ -92,7 +84,6 @@
       </div>
     </section>
 
-    <!-- 🔸 Sobre -->
     <section id="sobre">
       <h2>Sobre o Projeto</h2>
       <article>
@@ -101,7 +92,6 @@
       </article>
     </section>
 
-    <!-- 🔸 Conteúdo -->
     <section id="conteudo">
       <h2>Comece a Empreender</h2>
       <div class="card-grid">
@@ -129,18 +119,19 @@
             <li><strong>Instagram:</strong> divulgação.</li>
           </ul>
         </article>
-        <article class="card">
-  <h3>O que é MEI?</h3>
-  <p>MEI significa Microempreendedor Individual, um tipo de registro que permite que você abra sua própria empresa de forma simples, com impostos reduzidos e direitos como aposentadoria e auxílio-doença.</p>
-</article>
 
+        <article class="card">
+          <h3>O que é MEI?</h3>
+          <p>MEI significa Microempreendedor Individual, um tipo de registro que permite que você abra sua própria empresa de forma simples, com impostos reduzidos e direitos como aposentadoria e auxílio-doença.</p>
+        </article>
       </div>
 
       <h3>Quais documentos necessários para abrir um MEI?</h3>
-        <p>Para realizar o cadastro como MEI, é preciso ter em mãos alguns documentos básicos, como RG ou CNH, CPF, título de eleitor ou o número do recibo da última declaração do Imposto de Renda. Também será necessário informar o endereço de residência, além de um número de celular e um e-mail válido para contato.</p>
+      <p>Para realizar o cadastro como MEI, é preciso ter em mãos alguns documentos básicos, como RG ou CNH, CPF, título de eleitor ou o número do recibo da última declaração do Imposto de Renda. Também será necessário informar o endereço de residência, além de um número de celular e um e-mail válido para contato.</p>
 
       <h3>Como se cadastrar para ser MEI</h3>
-        <p>Visite o <a href="https://www.gov.br/" target="_blank">gov.br</a> e siga os passos simples. O cadastro é gratuito.</p>
+      <p>Visite o <a href="https://www.gov.br/" target="_blank">gov.br</a> e siga os passos simples. O cadastro é gratuito.</p>
+
       <h2>Vídeos explicativos</h2>
       <div class="video-grid">
         <iframe src="https://www.youtube.com/embed/SWS6fZR9kMM" title="Como criar conta GOV.BR" allowfullscreen></iframe>
@@ -149,18 +140,15 @@
     </section>
   </main>
 
-  <!-- ================= FOOTER ================= -->
   <footer>
     <p>© 2025 - Projeto TCC Guia do Empreendedor</p>
     <p>empreendedorismo2025@gmail.com</p>
   </footer>
 
-  <!-- ================= SCRIPT ================= -->
   <script>
     const toggleButton = document.getElementById("theme-toggle");
     const body = document.body;
 
-    // 🔹 Atualiza o ícone e o texto conforme o tema
     function updateThemeIcon(isDark) {
       toggleButton.innerHTML = `
         <span class="icon ${isDark ? "sun" : "moon"}">${isDark ? "☀️" : "🌙"}</span>
@@ -168,18 +156,15 @@
       `;
     }
 
-    // 🔹 Aplica o tema salvo
     const savedTheme = localStorage.getItem("theme");
     const startDark = savedTheme === "dark";
     if (startDark) body.classList.add("dark-mode");
     updateThemeIcon(startDark);
 
-    // 🔹 Clique no botão
     toggleButton.addEventListener("click", () => {
       const isDark = !body.classList.contains("dark-mode");
       body.classList.toggle("dark-mode");
 
-      // Cria o ícone de transição
       const oldIcon = document.createElement("span");
       oldIcon.classList.add("icon", isDark ? "moon" : "sun", "exit");
       oldIcon.textContent = isDark ? "🌙" : "☀️";
@@ -195,8 +180,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
